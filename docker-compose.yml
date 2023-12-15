@@ -8,7 +8,7 @@ services:
       dockerfile: ConsulTest/Dockerfile
 
   consul:
-    image: consul
+    image: hashicorp/consul
     container_name: consul
     volumes:
       - ./config:/consul/config
