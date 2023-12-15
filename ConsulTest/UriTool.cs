@@ -8,8 +8,6 @@ internal static class UriTool
 {
     public static string GetCurrentIp()
     {
-        return "192.168.0.184";
-
         // 获取可用网卡
         var networkInterfaces = NetworkInterface
             .GetAllNetworkInterfaces()
@@ -23,25 +21,25 @@ internal static class UriTool
         var firstIPAddress = ipCollection
             .FirstOrDefault(ip => !IPAddress.IsLoopback(ip.Address) && ip.Address.AddressFamily == AddressFamily.InterNetwork);
 
-        var instanceIp = "127.0.0.1";
-        if (ipCollection is not null)
-        {
-            foreach (var ipadd in ipCollection)
-            {
-                if (!IPAddress.IsLoopback(ipadd.Address) && ipadd.Address.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    if (string.IsNullOrEmpty(""))
-                    {
-                        instanceIp = ipadd.Address.ToString();
-                        break;
-                    }
+        //var instanceIp = "127.0.0.1";
+        //if (ipCollection is not null)
+        //{
+        //    foreach (var ipadd in ipCollection)
+        //    {
+        //        if (!IPAddress.IsLoopback(ipadd.Address) && ipadd.Address.AddressFamily == AddressFamily.InterNetwork)
+        //        {
+        //            if (string.IsNullOrEmpty(""))
+        //            {
+        //                instanceIp = ipadd.Address.ToString();
+        //                break;
+        //            }
 
-                    if (!ipadd.Address.ToString().StartsWith("")) continue;
-                    instanceIp = ipadd.Address.ToString();
-                    break;
-                }
-            }
-        }
+        //            if (!ipadd.Address.ToString().StartsWith("")) continue;
+        //            instanceIp = ipadd.Address.ToString();
+        //            break;
+        //        }
+        //    }
+        //}
 
         return firstIPAddress is null ? "127.0.0.1" : firstIPAddress.Address.ToString();
     }
