@@ -6,6 +6,10 @@ services:
     build:
       context: .
       dockerfile: ConsulTest/Dockerfile
+    networks:
+      - mynet
+    depends_on:
+      - consul
 
   consul:
     image: hashicorp/consul
