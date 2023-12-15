@@ -14,6 +14,7 @@ public static class ConsulConfigurationBuilderExtensions
         {
             builder.AddConsul($"{options.EnvironmentName}/{consulOptionsListener}", opt =>
             {
+                opt.ConsulConfigurationOptions = co => co.Address = new Uri(options.ServerAddresses);
                 opt.ReloadOnChange = true;
                 opt.Optional = true;
             });
