@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  consultest:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:3000
+    ports:
+      - "3000:3000"

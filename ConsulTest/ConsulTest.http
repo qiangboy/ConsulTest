@@ -1,0 +1,6 @@
+@ConsulTest_HostAddress = http://localhost:3000
+
+GET {{ConsulTest_HostAddress}}/swagger/
+Accept: application/json
+
+###
