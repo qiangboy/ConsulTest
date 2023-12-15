@@ -18,7 +18,7 @@ services:
       - ./config:/consul/config
       - ./data:/consul/data
       - ./logs:/consul/logs
-    command:  consul agent -server -bootstrap-expect=1 -client=0.0.0.0 -ui -bind='{{ GetPrivateIP }}' -data-dir=/consul/data -node=consul-node -datacenter=dc1 -log-level=debug -enable-script-checks=true -config-dir=/consul/config
+    command:  agent -server -ui -node=nodeOne -bootstrap-expect=1 -client=0.0.0.0
     ports:
       - "8500:8500"
       - "8600:8600/udp"
